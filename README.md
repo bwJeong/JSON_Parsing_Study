@@ -66,9 +66,9 @@ func parse() {
 
 ### SwiftyJSON
 - swift에서 json을 파싱하기 위한 기능을 제공하는 3rd-party Library
-- .stringValue와 같이 Value가 붙은 Method는 Non-optional!
+- .stringValue와 같이 뒤에 Value가 붙은 Method는 Non-optional이다!
 ```swift
-import SwiftJSON
+import SwiftyJSON
 
 struct FootballPlayer {
   let name: String
