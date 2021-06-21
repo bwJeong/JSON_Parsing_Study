@@ -31,7 +31,7 @@ let json: String = """
 ```
 
 ### Codable
-- Model에 Codable을 채용함으로써, json의 데이터를 직접 매칭시키는 작업없이 손쉽게 파싱을 진행하는 것이 가능
+- Model에 Codable 프로토콜을 채택함으로써, json의 데이터를 직접 매칭시키는 작업없이 손쉽게 Decode하는 것이 가능
 
 ```swift
 struct FootballPlayer: Codable {
