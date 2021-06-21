@@ -17,7 +17,7 @@
 
 ## Parsing
 ```swift
-let json: String = """
+let jsonString: String = """
 {
   "name": "손흥민",
   "age": 30,
@@ -33,7 +33,6 @@ let json: String = """
 ### Codable
 - Model에 Codable 프로토콜을 채택함으로써, json의 데이터를 직접 매칭시키는 작업없이 손쉽게 Decode하는 것이 가능
 - CodingKey 프로토콜을 이용해 json의 Key 값과 사용자가 정의한 Property를 일치시킬 수 있다!
-
 ```swift
 struct FootballPlayer: Codable {
   let name: String
@@ -57,10 +56,41 @@ struct FootballPlayer: Codable {
 
 func parse() {
   let decoder = JSONDecoder()
-  let data = json.data(using: .utf8)
+  let data = jsonString.data(using: .utf8)
   
   if let data = data, let footballPlayer = try? decoder.decode(FootballPlayer.self, data: data) {
     // To do
   }
 }
 ```
+
+### SwiftyJSON
+- swift에서 json을 파싱하기 위한 기능을 제공하는 3rd-party Library
+- .stringValue와 같이 Value가 붙은 Method는 Non-optional!
+```swift
+import SwiftJSON
+
+struct FootballPlayer {
+  let name: String
+  let age: Int
+  let job: String
+  let martialStatus: Bool
+  let hobby: String?
+  let currentClub: String
+  let beforeClubs: [String]
+}
+
+func parse() {
+  let json = JSON(jsonString)
+  let footballPlayer = FootballPlayer(
+      name: json["name"].stringValue,
+      age: json["age"].intValue, 
+      job: json["job"].stringValue, 
+      martialStatus: json["martial_status"].bool, 
+      hobby: json["hobby"].stringValue, 
+      currentClub: json["current_club"].stringValue, 
+      beforeClubs: json["before_clubs"].arrayValue.map { $0.stringValue }
+  )
+}
+```
+
