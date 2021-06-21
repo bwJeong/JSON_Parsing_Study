@@ -16,6 +16,19 @@
 ```
 
 ## Parsing
+```swift
+let json: String = """
+{
+  "name": "손흥민",
+  "age": 30,
+  "job": "Football Player",
+  "martial_status": false,
+  "hobby": null,
+  "current_club": "Tottenham Hotspur",
+  "before_clubs": ["Hamburger SV", "Bayer 04 Leverkusen"]
+}
+"""
+```
 
 ### Codable
 - Model에 Codable을 채용함으로써, json의 데이터를 직접 매칭시키는 작업없이 손쉽게 파싱을 진행하는 것이 가능
