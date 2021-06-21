@@ -91,6 +91,8 @@ func parse() {
       currentClub: json["current_club"].stringValue, 
       beforeClubs: json["before_clubs"].arrayValue.map { $0.stringValue }
   )
+  
+  // To do
 }
 ```
 
