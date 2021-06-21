@@ -40,7 +40,10 @@ struct FootballPlayer: Codable {
   let age: Int
   let job: String
   let martialStatus: Bool
-  let hobby: String? // nil이 발생할 수 있는 경우, Type을 Obtional로 선언해줘야 에러가 발생하지 않는다!
+  
+  // nil이 발생할 수 있는 경우, Type을 Obtional로 선언해줘야 에러가 발생하지 않는다!
+  let hobby: String?
+  
   let currentClub: String
   let beforeClubs: [String]
   
